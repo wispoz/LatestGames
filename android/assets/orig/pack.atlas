@@ -1,0 +1,36 @@
+
+pack.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blocktimescore
+  rotate: false
+  xy: 2, 2
+  size: 102, 42
+  orig: 102, 42
+  offset: 0, 0
+  index: -1
+score
+  rotate: false
+  xy: 2, 2
+  size: 102, 42
+  split: 0, 0, 0, 0
+  pad: 10, 10, 11, 10
+  orig: 102, 42
+  offset: 0, 0
+  index: -1
+fon
+  rotate: false
+  xy: 2, 160
+  size: 452, 600
+  orig: 452, 600
+  offset: 0, 0
+  index: -1
+piatnashka
+  rotate: false
+  xy: 2, 46
+  size: 112, 112
+  orig: 112, 112
+  offset: 0, 0
+  index: -1
