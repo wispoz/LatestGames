@@ -15,6 +15,24 @@ public class ActorInputListen extends ActorGestureListener {
     @Override
     public void fling (InputEvent event, float velocityX, float velocityY, int button) {
 
-        System.out.println(" WEE SPWIPEEE swipe x:"+velocityX+"y:"+velocityY);
-    }
+        if(Math.abs(velocityX)>Math.abs(velocityY)){
+            if(velocityX>0){
+               // directionListener.onRight();
+                System.out.println("SWIPE: RIGHT");
+            }else{
+              //  directionListener.onLeft();
+                System.out.println("SWIPE: LEFT");
+            }
+        }else{
+            if(velocityY>0){
+            //    directionListener.onDown();
+            System.out.println("SWIPE: UP");
+
+            }else{
+            //    directionListener.onUp();
+                System.out.println("SWIPE: DWON");
+            }
+        }
+     }
 }
+

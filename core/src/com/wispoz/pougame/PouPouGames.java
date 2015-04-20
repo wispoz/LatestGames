@@ -16,7 +16,7 @@ public class PouPouGames extends ApplicationAdapter {
     @Override
     public void create () {
 
-        stage = new GameStage();
+        stage = new TableStage();
 
     }
 
