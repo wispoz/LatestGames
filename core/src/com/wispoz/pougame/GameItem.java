@@ -23,7 +23,7 @@ public class GameItem implements IScript {
     @Override
     public void init(CompositeItem gameItem) {
         game = gameItem;
-       game.addListener(new ActorInputListen());
+       game.addListener(new ActorInputListen(gameItem));
 
 
 

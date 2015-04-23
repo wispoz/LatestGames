@@ -29,7 +29,6 @@ public class PouPouGames extends ApplicationAdapter {
 
     public void create () {
         stage = new GameStage();
-
     }
 
     public void render () {

@@ -1,15 +1,20 @@
 package com.wispoz.pougame;
 
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
+import com.uwsoft.editor.renderer.actor.CompositeItem;
 
 /**
  * Created by wispoz on 20.04.15.
  */
 public class ActorInputListen extends ActorGestureListener {
-
-    public ActorInputListen() {
+    private CompositeItem game;
+    public ActorInputListen(CompositeItem cell) {
       //  super(0.05f, 0.4f, 1.1f, 0.15f);
+        game = cell;
     }
 
     @Override
@@ -19,6 +24,15 @@ public class ActorInputListen extends ActorGestureListener {
             if(velocityX>0){
                // directionListener.onRight();
                 System.out.println("SWIPE: RIGHT");
+                CompositeItem scene = GameStage.getScene();
+                CompositeItem moveTo = scene.getCompositeById("grid_button1");
+                Float x = moveTo.getX();
+                Float y = moveTo.getY();
+                System.out.println("SWIPE: RIGHT");
+
+
+
+                game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
             }else{
               //  directionListener.onLeft();
                 System.out.println("SWIPE: LEFT");
