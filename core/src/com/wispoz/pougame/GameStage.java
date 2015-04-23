@@ -22,6 +22,8 @@ import sun.security.util.Debug;
 public class GameStage extends Overlap2DStage {
     private ResourceManager resourceManager;
     private static CompositeItem scene;
+    List<CompositeItem> gridsList=new ArrayList<CompositeItem>();
+    List<CompositeItem> buttonsList=new ArrayList<CompositeItem>();
     public GameStage() {
         //super(new StretchViewport(rm.stageWidth, rm.currentResolution.height));
         Gdx.input.setInputProcessor(this);
@@ -42,7 +44,7 @@ public class GameStage extends Overlap2DStage {
         scene = menuLoader.sceneActor;
         // Adding root actor to stage
         addActor(menuLoader.sceneActor);
-        List<CompositeItem> gridsList=new ArrayList<CompositeItem>();
+
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button1"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button2"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button3"));
@@ -59,7 +61,21 @@ public class GameStage extends Overlap2DStage {
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button14"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button15"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button16"));
-
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button1"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button2"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button3"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button4"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button5"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button6"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button7"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button8"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button9"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button10"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button11"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button12"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button13"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button14"));
+        buttonsList.add(menuLoader.sceneActor.getCompositeById("button15"));
         for(IBaseItem item: menuLoader.getRoot().getItems()) {
            if( item.isComposite()){
            //     Debug.println("TEST","TESTING");
