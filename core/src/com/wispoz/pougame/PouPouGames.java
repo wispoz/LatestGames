@@ -28,27 +28,7 @@ public class PouPouGames extends ApplicationAdapter {
     Stage stage;
 
     public void create () {
-        stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
-
-
-        Table table = new Table();
-
-       // table.setSize(200, 200);
-      //  table.setPosition(190, 142);
-        // table.align(Align.right | Align.bottom);
-        int actorWidth = Gdx.graphics.getWidth() / 8;
-        int actorHeight = Gdx.graphics.getHeight() /  8;
-        Actor[] actors = new Actor[8 * 8];
-        for (int i = 0; i < 8; i++){
-            for (int j = 0; j < 8; j++){
-                Actor actor = actors[(i * 8) + j];
-                table.add(actor).width(actorWidth).height(actorHeight);
-            }
-            table.row();
-        }
-        table.debug();
-        stage.addActor(table);
+        stage = new GameStage();
 
     }
 
@@ -58,9 +38,6 @@ public class PouPouGames extends ApplicationAdapter {
         stage.draw();
     }
 
-    public void resize (int width, int height) {
-        stage.getViewport().update(width, height, true);
-    }
 
     public void dispose () {
         stage.dispose();
