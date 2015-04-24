@@ -79,6 +79,7 @@ public class GameStage extends Overlap2DStage {
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button12"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button13"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button14"));
+
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button15"));
         for(CompositeItem item: buttonsList) {
                 item.addScript(new GameItem());
