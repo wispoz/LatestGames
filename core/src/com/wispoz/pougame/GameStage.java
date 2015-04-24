@@ -92,7 +92,7 @@ public class GameStage extends Overlap2DStage {
                 CompositeItem button = buttonsList.get(index);
                 String id = item.getCustomVariables().getFloatVariable("id").toString();
                 button.getCustomVariables().setVariable("bind",id);
-                button.addAction(Actions.moveTo(x, y, 7.0f, Interpolation.bounceOut));
+                button.addAction(Actions.moveTo(x, y, 1.0f, Interpolation.bounceOut));
             }
             index++;
         }

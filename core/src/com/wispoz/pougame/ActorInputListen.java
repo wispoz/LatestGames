@@ -26,7 +26,10 @@ public class ActorInputListen extends ActorGestureListener {
                 CompositeItem moveTo = scene.getCompositeById("grid_button16");
                 Float x = moveTo.getX();
                 Float y = moveTo.getY();
-                if(game.getCustomVariables().getFloatVariable("bind") == 15) {
+                Float bindedGrid = game.getCustomVariables().getFloatVariable("bind");
+                if(bindedGrid == 15) {
+                  //  game.getCustomVariables().setVariable("bind","16.0");
+
                     game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
                 }
 
@@ -39,9 +42,12 @@ public class ActorInputListen extends ActorGestureListener {
                 CompositeItem moveTo = scene.getCompositeById("grid_button15");
                 Float x = moveTo.getX();
                 Float y = moveTo.getY();
-                if(game.getCustomVariables().getFloatVariable("bind") == 16) {
+                String bindedGrid = game.getCustomVariables().getFloatVariable("bind").toString();
+                game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
+/*                if(bindedGrid == "16.0") {
+                    game.getCustomVariables().setVariable("bind","15.0");
                     game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
-                }
+                }*/
             }
         }else{
             if(velocityY>0){
