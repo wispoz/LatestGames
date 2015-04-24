@@ -2,6 +2,8 @@ package com.wispoz.pougame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.uwsoft.editor.renderer.Overlap2DStage;
@@ -11,6 +13,7 @@ import com.uwsoft.editor.renderer.actor.IBaseItem;
 import com.uwsoft.editor.renderer.resources.ResourceManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import sun.security.util.Debug;
@@ -61,6 +64,7 @@ public class GameStage extends Overlap2DStage {
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button14"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button15"));
         gridsList.add(menuLoader.sceneActor.getCompositeById("grid_button16"));
+
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button1"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button2"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button3"));
@@ -76,6 +80,23 @@ public class GameStage extends Overlap2DStage {
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button13"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button14"));
         buttonsList.add(menuLoader.sceneActor.getCompositeById("button15"));
+        for(CompositeItem item: buttonsList) {
+                item.addScript(new GameItem());
+        }
+        Collections.shuffle(buttonsList);
+        int index = 0;
+        for(CompositeItem item: gridsList) {
+            float x = item.getX();
+            float y = item.getY();
+            if(index != 15) {
+                CompositeItem button = buttonsList.get(index);
+                String id = item.getCustomVariables().getFloatVariable("id").toString();
+                button.getCustomVariables().setVariable("bind",id);
+                button.addAction(Actions.moveTo(x, y, 7.0f, Interpolation.bounceOut));
+            }
+            index++;
+        }
+        /*
         for(IBaseItem item: menuLoader.getRoot().getItems()) {
            if( item.isComposite()){
            //     Debug.println("TEST","TESTING");
@@ -83,7 +104,7 @@ public class GameStage extends Overlap2DStage {
             }
 
         }
-
+*/
 
     }
 

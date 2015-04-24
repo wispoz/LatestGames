@@ -22,20 +22,26 @@ public class ActorInputListen extends ActorGestureListener {
 
         if(Math.abs(velocityX)>Math.abs(velocityY)){
             if(velocityX>0){
-               // directionListener.onRight();
-                System.out.println("SWIPE: RIGHT");
                 CompositeItem scene = GameStage.getScene();
-                CompositeItem moveTo = scene.getCompositeById("grid_button1");
+                CompositeItem moveTo = scene.getCompositeById("grid_button16");
                 Float x = moveTo.getX();
                 Float y = moveTo.getY();
-                System.out.println("SWIPE: RIGHT");
+                if(game.getCustomVariables().getFloatVariable("bind") == 15) {
+                    game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
+                }
 
 
 
-                game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
             }else{
               //  directionListener.onLeft();
                 System.out.println("SWIPE: LEFT");
+                CompositeItem scene = GameStage.getScene();
+                CompositeItem moveTo = scene.getCompositeById("grid_button15");
+                Float x = moveTo.getX();
+                Float y = moveTo.getY();
+                if(game.getCustomVariables().getFloatVariable("bind") == 16) {
+                    game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
+                }
             }
         }else{
             if(velocityY>0){
