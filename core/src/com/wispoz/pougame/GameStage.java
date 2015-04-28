@@ -35,7 +35,7 @@ public class GameStage extends Overlap2DStage {
        //initSceneLoader(rm);
      //   sceneLoader.setResolution(rm.currentResolution.name);
         resourceManager = new ResourceManager();
-
+        resourceManager.setWorkingResolution("1080x1920");
         			// loading assets into memory
 
 
