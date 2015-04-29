@@ -33,11 +33,12 @@ public class GameStage extends Overlap2DStage {
         Gdx.input.setInputProcessor(this);
         rm = new ResolutionManager();
         rm.initGameResources();
+        /*
         // This will create SceneLoader instance and configure all things like default resource manager, physics e.t.c
        //initSceneLoader(rm);
      //   sceneLoader.setResolution(rm.currentResolution.name);
         resourceManager = new ResourceManager();
-        resourceManager.setWorkingResolution("1080x1920");
+      // resourceManager.setWorkingResolution("1080x1920");
         			// loading assets into memory
 
 
@@ -99,6 +100,7 @@ public class GameStage extends Overlap2DStage {
             }
             index++;
         }
+        */
         /*
         for(IBaseItem item: menuLoader.getRoot().getItems()) {
            if( item.isComposite()){
