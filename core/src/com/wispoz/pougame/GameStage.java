@@ -27,10 +27,12 @@ public class GameStage extends Overlap2DStage {
     private static CompositeItem scene;
     List<CompositeItem> gridsList=new ArrayList<CompositeItem>();
     List<CompositeItem> buttonsList=new ArrayList<CompositeItem>();
+    private ResolutionManager rm;
     public GameStage() {
         //super(new StretchViewport(rm.stageWidth, rm.currentResolution.height));
         Gdx.input.setInputProcessor(this);
-
+        rm = new ResolutionManager();
+        rm.initGameResources();
         // This will create SceneLoader instance and configure all things like default resource manager, physics e.t.c
        //initSceneLoader(rm);
      //   sceneLoader.setResolution(rm.currentResolution.name);
