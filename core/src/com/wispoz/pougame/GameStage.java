@@ -31,20 +31,21 @@ public class GameStage extends Overlap2DStage {
     public GameStage() {
         //super(new StretchViewport(rm.stageWidth, rm.currentResolution.height));
         Gdx.input.setInputProcessor(this);
-       // rm = new ResolutionManager();
-      //  rm.initGameResources();
-
+        rm = new ResolutionManager();
+        rm.initGameResources();
+        System.out.println("RESOLUTIONY:"+rm.currentResolution.name);
         // This will create SceneLoader instance and configure all things like default resource manager, physics e.t.c
        //initSceneLoader(rm);
      //   sceneLoader.setResolution(rm.currentResolution.name);
+
         resourceManager = new ResourceManager();
-       resourceManager.setWorkingResolution("480x800");
+       //resourceManager.setWorkingResolution("320x480");
         			// loading assets into memory
 
 
        resourceManager.initAllResources();
         // Creating Scene loader which can load an Overlap2D scene
-        SceneLoader menuLoader = new SceneLoader(resourceManager);
+        SceneLoader menuLoader = new SceneLoader(rm.currentResolution.name);
         // loading MenuScene.dt from assets folder
         menuLoader.loadScene("MainScene");
         scene = menuLoader.sceneActor;

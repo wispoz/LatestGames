@@ -29,7 +29,7 @@ public class ActorInputListen extends ActorGestureListener {
         if(Math.abs(velocityX)>Math.abs(velocityY)){
             if(velocityX>0){
                 CompositeItem scene = GameStage.getScene();
-                CompositeItem moveTo = scene.getCompositeById("grid_button16");
+                CompositeItem moveTo = scene.getCompositeById("grid16");
                 Float x = moveTo.getX();
                 Float y = moveTo.getY();
                 Float binded = game.getCustomVariables().getFloatVariable("bind");
@@ -38,7 +38,7 @@ public class ActorInputListen extends ActorGestureListener {
                 if(bindedGrid.equals("15.0")) {
                     game.getCustomVariables().setVariable("bind","16.0");
                     moveTo.getCustomVariables().setVariable("free","1");
-                    game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.swingOut));
+                    game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.exp10));
                 }
 
 
@@ -47,7 +47,7 @@ public class ActorInputListen extends ActorGestureListener {
               //  directionListener.onLeft();
                 System.out.println("SWIPE: LEFT");
                 CompositeItem scene = GameStage.getScene();
-                CompositeItem moveTo = scene.getCompositeById("grid_button15");
+                CompositeItem moveTo = scene.getCompositeById("grid15");
                 Float x = moveTo.getX();
                 Float y = moveTo.getY();
                 String bindedGrid = game.getCustomVariables().getFloatVariable("bind").toString();
@@ -56,7 +56,7 @@ public class ActorInputListen extends ActorGestureListener {
                if(bindedGrid.equals("16.0")) {
                   game.getCustomVariables().setVariable("bind","15.0");
                   moveTo.getCustomVariables().setVariable("free","1");
-                  game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.bounceOut));
+                  game.addAction(Actions.moveTo( x, y, 0.7f, Interpolation.exp10));
                 }
             }
         }else{

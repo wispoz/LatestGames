@@ -28,8 +28,8 @@ public class ResolutionManager extends ResourceManager {
         // It will be just more level visible for player.
 
         stageWidth = Gdx.graphics.getHeight()/currentResolution.height*Gdx.graphics.getWidth();
-        System.out.println("RESOULTION:"+currentResolution);
-        System.out.println("RESOULTION:"+stageWidth);
+        System.out.println("RESOULTIONZ:"+currentResolution);
+        System.out.println("RESOULTIONX:"+stageWidth);
 /*
         // Sets working resolution, so init all resources will load in to memory resources of that resolution/size only
         setWorkingResolution(currentResolution.name);
