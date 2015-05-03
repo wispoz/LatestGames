@@ -16,8 +16,8 @@ import java.lang.String;
  */
 public class ActorInputListen extends ActorGestureListener {
     private CompositeItem game;
-    float moveSpeed = 0.09f;
-    Interpolation moveAction = Interpolation.swingOut;
+    float moveSpeed = 0.5f;
+    Interpolation moveAction = Interpolation.linear;
     public ActorInputListen(CompositeItem cell) {
       //  super(0.05f, 0.4f, 1.1f, 0.15f);
         game = cell;
@@ -47,10 +47,12 @@ public class ActorInputListen extends ActorGestureListener {
             if(velocityY>0){
             //    directionListener.onDown();
             System.out.println("SWIPE: UP");
+                Float binded = game.getCustomVariables().getFloatVariable("bind");
+                this.move("up", binded);
 
             }else{
-            //    directionListener.onUp();
-                System.out.println("SWIPE: DWON");
+                Float binded = game.getCustomVariables().getFloatVariable("bind");
+                this.move("down", binded);
             }
         }
      }
@@ -66,8 +68,7 @@ public class ActorInputListen extends ActorGestureListener {
             }else{
                 float nextBind = bind + 1;
                 CompositeItem scene = GameStage.getScene();
-               String binded = Float.toString(nextBind);
-                String replacedBind = binded.replace(".0", "");
+                String replacedBind = Float.toString(nextBind).replace(".0", "");
                 String oldBindId = Float.toString(bind).replace(".0","");
                 CompositeItem moveTo = scene.getCompositeById("grid" + replacedBind);
                 CompositeItem moveFrom = scene.getCompositeById("grid" + oldBindId);
@@ -80,6 +81,7 @@ public class ActorInputListen extends ActorGestureListener {
                     game.addAction(Actions.moveTo(x, y, moveSpeed, moveAction));
                     game.getCustomVariables().setVariable("bind", Float.toString(nextBind));
                     moveFrom.getCustomVariables().setVariable("free","0");
+                    moveTo.getCustomVariables().setVariable("free","1");
                     System.out.println("SWIPE: RIGHT");
                 }
             }
@@ -87,8 +89,7 @@ public class ActorInputListen extends ActorGestureListener {
         if(direction.equals("left")){
             float nextBind = bind - 1;
             CompositeItem scene = GameStage.getScene();
-            String binded = Float.toString(nextBind);
-            String replacedBind = binded.replace(".0", "");
+            String replacedBind = Float.toString(nextBind).replace(".0", "");
             String oldBindId = Float.toString(bind).replace(".0","");
             CompositeItem moveTo = scene.getCompositeById("grid" + replacedBind);
             CompositeItem moveFrom = scene.getCompositeById("grid" + oldBindId);
@@ -101,7 +102,56 @@ public class ActorInputListen extends ActorGestureListener {
                 game.addAction(Actions.moveTo(x, y, moveSpeed, moveAction));
                 game.getCustomVariables().setVariable("bind", Float.toString(nextBind));
                 moveFrom.getCustomVariables().setVariable("free","0");
-                System.out.println("SWIPE: RIGHT");
+                moveTo.getCustomVariables().setVariable("free", "1");
+            }
+        }
+        if(direction.equals("up")) {
+            float nextBind = bind - 4;
+            if(bind == 1 && bind == 2 && bind == 3 && bind == 4 ) {
+
+            }else {
+                CompositeItem scene = GameStage.getScene();
+                String replacedBind = Float.toString(nextBind).replace(".0", "");
+                String oldBindId = Float.toString(bind).replace(".0","");
+                CompositeItem moveTo = scene.getCompositeById("grid" + replacedBind);
+                CompositeItem moveFrom = scene.getCompositeById("grid" + oldBindId);
+                Float isFree = moveTo.getCustomVariables().getFloatVariable("free");
+                if(isFree.toString().equals("1.0")) {
+
+                }else {
+                    Float x = moveTo.getX();
+                    Float y = moveTo.getY();
+                    game.addAction(Actions.moveTo(x, y, moveSpeed, moveAction));
+                    game.getCustomVariables().setVariable("bind", Float.toString(nextBind));
+                    moveFrom.getCustomVariables().setVariable("free","0");
+                    moveTo.getCustomVariables().setVariable("free", "1");
+                }
+
+            }
+
+        }
+        if(direction.equals("down")) {
+            float nextBind = bind + 4;
+            if(bind == 13 && bind == 14 && bind == 15 && bind == 16 ) {
+
+            }else {
+                CompositeItem scene = GameStage.getScene();
+                String replacedBind = Float.toString(nextBind).replace(".0", "");
+                String oldBindId = Float.toString(bind).replace(".0","");
+                CompositeItem moveTo = scene.getCompositeById("grid" + replacedBind);
+                CompositeItem moveFrom = scene.getCompositeById("grid" + oldBindId);
+                Float isFree = moveTo.getCustomVariables().getFloatVariable("free");
+                if(isFree.toString().equals("1.0")) {
+
+                }else {
+                    Float x = moveTo.getX();
+                    Float y = moveTo.getY();
+                    game.addAction(Actions.moveTo(x, y, moveSpeed, moveAction));
+                    game.getCustomVariables().setVariable("bind", Float.toString(nextBind));
+                    moveFrom.getCustomVariables().setVariable("free","0");
+                    moveTo.getCustomVariables().setVariable("free", "1");
+                }
+
             }
         }
 /*
