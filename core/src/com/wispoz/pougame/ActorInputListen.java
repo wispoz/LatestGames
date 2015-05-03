@@ -5,21 +5,45 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
+import com.badlogic.gdx.utils.Array;
 import com.uwsoft.editor.renderer.actor.CompositeItem;
 
 import org.lwjgl.Sys;
 
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wispoz on 20.04.15.
  */
 public class ActorInputListen extends ActorGestureListener {
+    private static ArrayList lines;
     private CompositeItem game;
     float moveSpeed = 0.5f;
     Interpolation moveAction = Interpolation.linear;
     public ActorInputListen(CompositeItem cell) {
       //  super(0.05f, 0.4f, 1.1f, 0.15f);
+
+        lines = new ArrayList();
+        lines.add(0,1);
+        lines.add(1,1);
+        lines.add(2,1);
+        lines.add(3,1);
+        lines.add(4,1);
+        lines.add(5,2);
+        lines.add(6,2);
+        lines.add(7,2);
+        lines.add(8,2);
+        lines.add(9,3);
+        lines.add(10,3);
+        lines.add(11,3);
+        lines.add(12,3);
+        lines.add(13,4);
+        lines.add(14,4);
+        lines.add(15,4);
+        lines.add(16,4);
+
         game = cell;
     }
 /*
@@ -30,28 +54,24 @@ public class ActorInputListen extends ActorGestureListener {
  */
     @Override
     public void fling (InputEvent event, float velocityX, float velocityY, int button) {
-
+        Float binded = game.getCustomVariables().getFloatVariable("bind");
+            this.getLine(3);
         if(Math.abs(velocityX)>Math.abs(velocityY)){
             if(velocityX>0){
-                System.out.println("SWIPE: RIGHT");
-                Float binded = game.getCustomVariables().getFloatVariable("bind");
+
                 this.move("right",binded);
 
             }else{
               //  directionListener.onLeft();
-                System.out.println("SWIPE: LEFT");
-                Float binded = game.getCustomVariables().getFloatVariable("bind");
+
                 this.move("left", binded);
             }
         }else{
             if(velocityY>0){
-            //    directionListener.onDown();
-            System.out.println("SWIPE: UP");
-                Float binded = game.getCustomVariables().getFloatVariable("bind");
                 this.move("up", binded);
 
             }else{
-                Float binded = game.getCustomVariables().getFloatVariable("bind");
+
                 this.move("down", binded);
             }
         }
@@ -153,6 +173,7 @@ public class ActorInputListen extends ActorGestureListener {
                 }
 
             }
+
         }
 /*
         CompositeItem scene = GameStage.getScene();
@@ -169,5 +190,11 @@ public class ActorInputListen extends ActorGestureListener {
         }
         */
     }
+
+    public int getLine(int bind) {
+        Integer line = (Integer) lines.get(bind);
+        return line;
+    }
+
 }
 
