@@ -27,6 +27,8 @@ public class ActorInputListen extends ActorGestureListener {
     @Override
     public void fling (InputEvent event, float velocityX, float velocityY, int button) {
         Float binded = game.getCustomVariables().getFloatVariable("bind");
+
+        System.out.println("LINEEEEE:"+gridRanes[this.getLine(binded.intValue())][0]+"to+:"+gridRanes[this.getLine(binded.intValue())][1]);
         if(Math.abs(velocityX)>Math.abs(velocityY)){
             if(velocityX>0){
                 this.move("right",binded);
