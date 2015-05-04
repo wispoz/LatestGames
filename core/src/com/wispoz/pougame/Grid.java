@@ -7,6 +7,9 @@ import java.util.ArrayList;
  */
 public class Grid {
     private static ArrayList lines;
+    private static ArrayList gridList;
+
+    private static int gridRanes[][] = new int[5][2];
     public Grid(){
 
     }
@@ -30,5 +33,18 @@ public class Grid {
         lines.add(15,4);
         lines.add(16,4);
         return lines;
+    }
+    public static int[][] getRanges (){
+        gridRanes[0][0] = 1;// not use
+        gridRanes[0][1] = 1;// not use
+            gridRanes[1][0] = 1;
+            gridRanes[1][1] = 4;
+            gridRanes[2][0] = 5;
+            gridRanes[2][1] = 8;
+            gridRanes[3][0] = 9;
+            gridRanes[3][1] = 12;
+            gridRanes[4][0] = 13;
+            gridRanes[4][1] = 16;
+        return gridRanes;
     }
 }

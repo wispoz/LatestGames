@@ -1,18 +1,12 @@
 package com.wispoz.pougame;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.badlogic.gdx.utils.Array;
 import com.uwsoft.editor.renderer.actor.CompositeItem;
-
-import org.lwjgl.Sys;
-
 import java.lang.String;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by wispoz on 20.04.15.
@@ -20,10 +14,12 @@ import java.util.List;
 public class ActorInputListen extends ActorGestureListener {
     private static ArrayList lines;
     private CompositeItem game;
+    private static int gridRanes[][] = new int[5][2];
     float moveSpeed = 0.5f;
     Interpolation moveAction = Interpolation.linear;
     public ActorInputListen(CompositeItem cell) {
         lines = Grid.makeGrid();
+        gridRanes = Grid.getRanges();
         game = cell;
     }
 
