@@ -15,11 +15,12 @@ public class ActorInputListen extends ActorGestureListener {
     private static ArrayList lines;
     private CompositeItem game;
     private static int gridRanes[][] = new int[5][2];
-    float moveSpeed = 0.5f;
-    Interpolation moveAction = Interpolation.linear;
+    float moveSpeed = 0.09f;
+    Interpolation moveAction = Interpolation.swingIn;
     public ActorInputListen(CompositeItem cell) {
         lines = Grid.makeGrid();
         gridRanes = Grid.getRanges();
+
         game = cell;
     }
 
