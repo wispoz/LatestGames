@@ -24,11 +24,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+
 public class PouPouGames extends ApplicationAdapter {
     Stage stage;
 
     public void create () {
-        stage = new MainMenu();
+        stage = new GameStage();
     }
 
     public void render () {
