@@ -25,6 +25,8 @@ public class MainMenu extends Overlap2DStage {
         scene = menuLoader.sceneActor;
         // Adding root actor to stage
         addActor(menuLoader.sceneActor);
+        CompositeItem playButton = menuLoader.sceneActor.getCompositeById("playButton");
+        CompositeItem optionsButton = menuLoader.sceneActor.getCompositeById("optionsButton");
     }
     public void act(float delta) {
         super.act(delta);

@@ -28,7 +28,7 @@ public class PouPouGames extends ApplicationAdapter {
     Stage stage;
 
     public void create () {
-        stage = new GameStage();
+        stage = new MainMenu();
     }
 
     public void render () {
